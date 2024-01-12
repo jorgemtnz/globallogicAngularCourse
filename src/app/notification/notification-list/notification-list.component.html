@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <p>notification-list works!</p>
+        </div>
+      </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <label> Message from input component: {{message}}</label>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <ol>
+            <li value = "i" *ngFor="let elemt of ( list$ | async) ; let i = index"> 
+                {{elemt}}
+            </li>
+        </ol>
+
+        </div>
+    </div>
+</div>
+
+
+
