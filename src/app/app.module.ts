@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { NotificationInputComponent } from './notification/notification-input/notification-input.component';
 import { NotificationListComponent } from './notification/notification-list/notification-list.component';
 import { FormsModule } from '@angular/forms';
+import { NotificationMainComponent } from './notification/notification-main/notification-main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotificationInputComponent,
-    NotificationListComponent
+    NotificationListComponent,
+    NotificationMainComponent
   ],
   imports: [
     BrowserModule,

@@ -6,11 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AppNotif';
-  message: string = "";
 
-  onMessageToAdd(value: string) {
-    this.message = value;
-  }
 
 }
