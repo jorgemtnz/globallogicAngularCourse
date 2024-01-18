@@ -7,13 +7,17 @@ import { NotificationInputComponent } from './notification/notification-input/no
 import { NotificationListComponent } from './notification/notification-list/notification-list.component';
 import { FormsModule } from '@angular/forms';
 import { NotificationMainComponent } from './notification/notification-main/notification-main.component';
+import { PokemonSpeciesSearchComponent } from './pokemon/pokemon-species-search/pokemon-species-search.component';
+import { PokemonSpecieDetailComponent } from './pokemon/pokemon-specie-detail/pokemon-specie-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotificationInputComponent,
     NotificationListComponent,
-    NotificationMainComponent
+    NotificationMainComponent,
+    PokemonSpeciesSearchComponent,
+    PokemonSpecieDetailComponent
   ],
   imports: [
     BrowserModule,
