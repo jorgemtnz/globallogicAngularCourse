@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { NotificationMainComponent } from './notification/notification-main/notification-main.component';
 import { PokemonSpeciesSearchComponent } from './pokemon/pokemon-species-search/pokemon-species-search.component';
 import { PokemonSpecieDetailComponent } from './pokemon/pokemon-specie-detail/pokemon-specie-detail.component';
+import { SpinnerloaderComponent } from './shared/spinnerloader/spinnerloader.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PokemonSpecieDetailComponent } from './pokemon/pokemon-specie-detail/po
     NotificationListComponent,
     NotificationMainComponent,
     PokemonSpeciesSearchComponent,
-    PokemonSpecieDetailComponent
+    PokemonSpecieDetailComponent,
+    SpinnerloaderComponent
   ],
   imports: [
     BrowserModule,
