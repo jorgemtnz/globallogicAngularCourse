@@ -12,12 +12,12 @@ export class NotificationListComponent implements OnInit {
 
   list$: Observable<string[]> = EMPTY;
 
-  constructor(private service: MessagesService) { }
+  constructor(private service: MessagesService) {
+    this.list$  = this.service.getMessages();
+   }
 
 
   ngOnInit() {
-    const result = this.service.getMessages();
-
-    this.list$ = result;
+    
   }
 }

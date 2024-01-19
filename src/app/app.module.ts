@@ -8,8 +8,8 @@ import { NotificationListComponent } from './notification/notification-list/noti
 import { FormsModule } from '@angular/forms';
 import { NotificationMainComponent } from './notification/notification-main/notification-main.component';
 import { PokemonSpeciesSearchComponent } from './pokemon/pokemon-species-search/pokemon-species-search.component';
-import { PokemonSpecieDetailComponent } from './pokemon/pokemon-specie-detail/pokemon-specie-detail.component';
 import { SpinnerloaderComponent } from './shared/spinnerloader/spinnerloader.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,14 +17,14 @@ import { SpinnerloaderComponent } from './shared/spinnerloader/spinnerloader.com
     NotificationInputComponent,
     NotificationListComponent,
     NotificationMainComponent,
-    PokemonSpeciesSearchComponent,
-    PokemonSpecieDetailComponent,
+    PokemonSpeciesSearchComponent,   
     SpinnerloaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

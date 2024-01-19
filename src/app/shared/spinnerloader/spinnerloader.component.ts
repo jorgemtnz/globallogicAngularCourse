@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-spinnerloader',
   template: `           
-      <div class="loader"></div>     
+      <div class="loader" *ngIf=loadingService.loading$ | async></div>     
   `, 
   styles:[ `
   .loader {
@@ -33,4 +34,6 @@ import { Component } from '@angular/core';
 })
 export class SpinnerloaderComponent {
 
+  constructor(public loadingService:LoadingService){}
+  
 }
