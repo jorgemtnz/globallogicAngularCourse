@@ -6,13 +6,15 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { PokemonService } from '../pokemon/pokemon.service';
 
 @Injectable()
 export class CountingInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private pokemonService:PokemonService) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    this.pokemonService.countingRequest();
     return next.handle(request);
   }
 }
