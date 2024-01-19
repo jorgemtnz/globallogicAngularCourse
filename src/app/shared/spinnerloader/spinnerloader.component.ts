@@ -4,8 +4,9 @@ import { LoadingService } from 'src/app/services/loading.service';
 @Component({
   selector: 'app-spinnerloader',
   template: `           
-      <!-- <div class="loader" *ngIf=(loadingService.loading$ | async)></div>      -->
-      <div class="loader" *ngIf= isLoading ></div>  
+      <div class="spinner-container" *ngIf= isLoading >
+        <div class="loader"></div>
+      </div>  
   `, 
   styles:[ `
   .loader {
@@ -19,6 +20,19 @@ import { LoadingService } from 'src/app/services/loading.service';
   height: 120px;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
+}
+
+.spinner-container {
+position:fixed;
+height:100%;
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+top:0;
+left:0;
+background: rgba(0,0,0,0.32);
+z-index:2000;
 }
 
 @-webkit-keyframes spin {

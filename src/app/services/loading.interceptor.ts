@@ -17,13 +17,11 @@ export class LoadingInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)
     .pipe(
-      //filter(event => event instanceof HttpResponse),
+      filter(event => event instanceof HttpResponse),
       tap({
         next: (event) => {
-          if (event instanceof HttpResponse) {
             console.log("apagar spinner");
-            this.loadingService.loadingOff();
-          }
+            this.loadingService.loadingOff();     
           return event;
         }})
     )

@@ -21,7 +21,7 @@ searchPokemonSpecie() {
     console.log("time delay")
     this.subscription = this.service.getPokemonsSpecie()
     .subscribe(d => console.log(d)); 
-    }, 2500);
+    }, 2000);
 }
 
 ngOnDestroy(): void {
