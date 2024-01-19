@@ -12,12 +12,7 @@ export class PokemonService {
   private baseUrl = 'https://pokeapi.co/api/v2/'
 
   getPokemonsSpecie(){
-
-    return this.httpClient.get<any>(this.baseUrl + 'pokemon-species/wormadam')
-      .pipe( 
-        tap( _ =>console.log("service time delay")),
-        delay(1000)
-        );
+    return this.httpClient.get<any>(this.baseUrl + 'pokemon-species/wormadam');  
     }
 
 }

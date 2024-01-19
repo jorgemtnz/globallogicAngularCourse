@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-spinnerloader',
   template: `           
-      <div class="loader" *ngIf=loadingService.loading$ | async></div>     
+      <!-- <div class="loader" *ngIf=(loadingService.loading$ | async)></div>      -->
+      <div class="loader" *ngIf= isLoading ></div>  
   `, 
   styles:[ `
   .loader {
@@ -32,8 +33,27 @@ import { LoadingService } from 'src/app/services/loading.service';
   `
   ]
 })
-export class SpinnerloaderComponent {
+export class SpinnerloaderComponent implements OnInit, OnDestroy{
 
-  constructor(public loadingService:LoadingService){}
+  constructor(public loadingService:LoadingService){  
+
+  }
   
+  isLoading = false;
+  subscription: any;
+  
+  ngOnInit(){
+    this.subscription = this.loadingService.loading$.subscribe( (r: boolean) => this.setValue(r));
+    console.log("spinner subscrito");
+  }
+  
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+setValue(value: boolean){
+  console.log(value);
+  this.isLoading = value;
+}
+
 }

@@ -9,7 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { NotificationMainComponent } from './notification/notification-main/notification-main.component';
 import { PokemonSpeciesSearchComponent } from './pokemon/pokemon-species-search/pokemon-species-search.component';
 import { SpinnerloaderComponent } from './shared/spinnerloader/spinnerloader.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoadingInterceptor } from './services/loading.interceptor';
+import { CountingInterceptor } from './services/counting.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,15 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers:[{
+    provide: HTTP_INTERCEPTORS,
+    useClass:LoadingInterceptor,
+    multi:true
+  },{
+    provide: HTTP_INTERCEPTORS,
+    useClass:CountingInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,16 +3,30 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, filter, tap } from 'rxjs';
+import { LoadingService } from './loading.service';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private loadingService:LoadingService) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(request)
+    .pipe(
+      //filter(event => event instanceof HttpResponse),
+      tap({
+        next: (event) => {
+          if (event instanceof HttpResponse) {
+            console.log("apagar spinner");
+            this.loadingService.loadingOff();
+          }
+          return event;
+        }})
+    )
+    ;
   }
 }

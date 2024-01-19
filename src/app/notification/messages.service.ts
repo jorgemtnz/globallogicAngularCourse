@@ -11,21 +11,17 @@ export class MessagesService {
   private list: string[] = [];
   public messages: Subject<string[]> = new Subject<string[]>//= //EMPTY;//of({});
 
-  addElement(elemt:string){
-    //debugger;
+  addElement(elemt:string){    
     this.list.push(elemt);
-    console.log("added element");
     this.messages.next(this.list);
   }
-  deleteLastElement(elemt:string){
-    //debugger;
+  deleteLastElement(elemt:string){    
     this.list.pop();
-    console.log("added element");
     this.messages.next(this.list);
   }
   getMessages():Observable<string[]>{
     console.log("get elements");
-    return this.messages.asObservable();  //of(this.list);
+    return this.messages.asObservable();  
   }
 
 }
