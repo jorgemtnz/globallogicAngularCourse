@@ -1,7 +1,43 @@
-<!-- <app-notification-main></app-notification-main> -->
-
-
-<app-pokemon-species-search></app-pokemon-species-search>
-
-<router-outlet></router-outlet>
+<div >
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <p>App component works!</p>
+        </div>
+      </div>
+      <div class="row"></div>
+      <div class="col-sm-12 col-md-12">
+        <label >Choose a functionality: </label>       
+      </div>     
+    </div>
+    <br>
+    <div class=" container">
+      <div class="row">
+        <div class="col-sm-2 col-md-2">
+          <button class="btn btn-primary" routerLink="componentesA" tabindex="0">
+            <span>componentesA</span>
+          </button>
+        </div>      
+        <div class="col-sm-2 col-md-2">
+          <button class="btn btn-warning" routerLink="componentesB" tabindex="0">
+            <span>componentesB</span>
+          </button>
+        </div>      
+        <div class="col-sm-2 col-md-2">
+            <button class="btn btn-warning" routerLink="" tabindex="0">
+              <span>DashBoard</span>
+            </button>
+          </div>  
+        <div class="col-sm-6 col-md-6">     
+        </div>
+      </div>
+    </div>
+    <div class=" container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <router-outlet></router-outlet>
+          </div>  
+        </div>
+      </div>
+  </div>
 <app-spinnerloader></app-spinnerloader> 
