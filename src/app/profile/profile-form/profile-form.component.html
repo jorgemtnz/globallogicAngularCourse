@@ -1,0 +1,49 @@
+<form [formGroup]="profileForm" (ngSubmit)="updateProfile()" autocomplete="off" >
+<div >
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <p>profile-form works!</p>
+        </div>
+      </div>
+      <div class="row"></div>
+      <div class="col-sm-2 col-md-2">
+        <label >Username </label>
+        <input type="text" id="username" formControlName="username" placeholder="User name" style="width:300px">
+      </div>
+      <div class="col-sm-2 col-md-2">
+        <label >Email </label>
+        <input type="text" id="email" formControlName="email" placeholder="Email" style="width:300px">
+      </div>
+      <div class="col-sm-2 col-md-2">
+        <label >Bio </label>
+        <input type="text" id="bio" formControlName="bio" placeholder="Bio" style="width:300px">
+      </div>
+      <div class="col-sm-2 col-md-2">
+        <label >Profile picture </label>
+        <input type="text" id="profilepicture" formControlName="profilepicture" placeholder="Profile picture" style="width:300px">
+      </div>
+      <div class="col-sm-4 col-md-4">   
+        <label >Interests </label>
+        <input type="text" id="interests" formControlName="interests" placeholder="Interest" style="width:300px">
+      </div>
+    </div>
+    <br>
+    <div class=" container">
+      <div class="row">
+        <div class="col-sm-2 col-md-2">
+          <button class="btn btn-primary" type="submit" tabindex="0">
+            <span>Update</span>
+          </button>
+          <button class="btn btn-primary" (click)="cancel()" tabindex="0">
+            <span>Cancel</span>
+          </button>
+        </div>  
+        <div class="col-sm-10 col-md-10">     
+        </div>
+      </div>
+    </div>    
+  </div>
+</form>
+<p>Form value: {{profileForm.value | json}}</p>
+<p>Form status: {{profileForm.status | json}}</p>
