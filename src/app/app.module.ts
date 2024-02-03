@@ -6,6 +6,8 @@ import { SpinnerloaderComponent } from './shared/spinnerloader/spinnerloader.com
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoadingInterceptor } from './services/loading.interceptor';
 import { CountingInterceptor } from './services/counting.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { CountingInterceptor } from './services/counting.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,   
-    HttpClientModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule, BrowserAnimationsModule
   ],
   providers:[{
     provide: HTTP_INTERCEPTORS,

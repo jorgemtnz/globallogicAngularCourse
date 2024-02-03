@@ -8,27 +8,44 @@
       </div>
       <div class="row"></div>
       <div class="col-sm-2 col-md-2">
-        <label >Username </label>
-        <input type="text" id="username" formControlName="username" placeholder="User name" style="width:300px">
+        <app-text-input [formControl]="$any(profileForm.controls['username'])" [label]="'Username'" ></app-text-input>       
+    </div>
+  
+      <div class="col-sm-4 col-md-4">
+        <app-text-input [formControl]="$any(profileForm.controls['email'])" [label]="'Email'" ></app-text-input>         
       </div>
-      <div class="col-sm-2 col-md-2">
-        <label >Email </label>
-        <input type="text" id="email" formControlName="email" placeholder="Email" style="width:300px">
+      <div class="col-sm-3 col-md-3">
+        <app-text-input [formControl]="$any(profileForm.controls['bio'])" [label]="'Bio'" ></app-text-input>        
       </div>
-      <div class="col-sm-2 col-md-2">
-        <label >Bio </label>
-        <input type="text" id="bio" formControlName="bio" placeholder="Bio" style="width:300px">
-      </div>
-      <div class="col-sm-2 col-md-2">
+      <div class="col-sm-2 col-md-2 mb-3">
         <label >Profile picture </label>
-        <input type="text" id="profilepicture" formControlName="profilepicture" placeholder="Profile picture" style="width:300px">
-      </div>
-      <div class="col-sm-4 col-md-4">   
-        <label >Interests </label>
-        <input type="text" id="interests" formControlName="interests" placeholder="Interest" style="width:300px">
-      </div>
+        <app-text-input [formControl]="$any(profileForm.controls['profilepicture'])" [label]="'profilepicture'" ></app-text-input> 
+      </div>      
     </div>
     <br>
+    <div class=" container">
+      <div class="row">
+        <div class="col-sm-4 col-md-4">
+          <label >Interests </label>
+          <input type="text" id="interests" class="form-control" formControlName="interests" placeholder="Interest" style="width:300px">      
+        </div>  
+        <div class="col-sm-8 col-md-8">     
+        </div>
+      </div>    
+      <div class="row">
+        <div class="col-sm-4 col-md-4">
+          <button class="btn btn-primary" (click)="addInterest()" tabindex="0">
+            <span>Add Interest</span>
+          </button>
+          <button class="btn btn-primary" (click)="deleteInterest()" tabindex="0">
+            <span>Delete Interest</span>
+          </button>
+        </div>  
+        <div class="col-sm-8 col-md-8">     
+        </div>
+      </div>
+      <br>
+    </div>    
     <div class=" container">
       <div class="row">
         <div class="col-sm-2 col-md-2">
@@ -42,7 +59,7 @@
         <div class="col-sm-10 col-md-10">     
         </div>
       </div>
-    </div>    
+    </div>   
   </div>
 </form>
 <p>Form value: {{profileForm.value | json}}</p>
