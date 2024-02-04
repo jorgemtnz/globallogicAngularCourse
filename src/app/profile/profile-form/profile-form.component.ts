@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { EmailService } from 'src/app/services/email.service';
+import { checkEmailAvailability } from 'src/app/validators/async-email-validator';
 
 @Component({
   selector: 'app-profile-form',
@@ -8,7 +10,7 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Valida
 })
 export class ProfileFormComponent implements OnInit{
   
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private email:EmailService) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -16,15 +18,10 @@ export class ProfileFormComponent implements OnInit{
   
   profileForm:FormGroup = new FormGroup({});
   
-/*
-new FormGroup({ is the equivalent to this.fb.group
-  new FormControl is equivalente to an array 
-*/
-
   initializeForm(){
     this.profileForm = this.fb.group({
       username: ['',[Validators.required, Validators.maxLength(25), Validators.minLength(4), Validators.pattern('^[A-Za-z0-9]+$')] ],
-      email: ['',Validators.required],
+      email: ['',Validators.required, checkEmailAvailability(this.email)],
       bio: ['',Validators.required],
       profilepicture: [],
       interests: new FormArray([])
