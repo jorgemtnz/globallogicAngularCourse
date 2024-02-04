@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-form',
@@ -8,25 +8,33 @@ import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from
 })
 export class ProfileFormComponent implements OnInit{
   
+  constructor(private fb: FormBuilder) { }
+
   ngOnInit(): void {
     this.initializeForm();
   }
   
   profileForm:FormGroup = new FormGroup({});
   
+/*
+new FormGroup({ is the equivalent to this.fb.group
+  new FormControl is equivalente to an array 
+*/
+
   initializeForm(){
-    this.profileForm = new FormGroup({
-      username: new FormControl('',[Validators.required, Validators.maxLength(25), Validators.minLength(4), Validators.pattern('^[A-Za-z0-9]+$')] ),
-      email: new FormControl('',Validators.required),
-      bio: new FormControl('',Validators.required),
-      interests: new FormControl(),
-      profilepicture: new FormControl()
+    this.profileForm = this.fb.group({
+      username: ['',[Validators.required, Validators.maxLength(25), Validators.minLength(4), Validators.pattern('^[A-Za-z0-9]+$')] ],
+      email: ['',Validators.required],
+      bio: ['',Validators.required],
+      profilepicture: [],
+      interests: new FormArray([])
     });
+
   }
   
-  updateProfile(){
-    console.log(this.profileForm?.value);
-  }
+  get getInterests(){ 
+    return this.profileForm.get('interests') as FormArray;
+  } 
   
   matchValues(matchTo: string): ValidatorFn {
     return (control: AbstractControl) => {
@@ -34,17 +42,17 @@ export class ProfileFormComponent implements OnInit{
         ? null
         : { notMatching: true };
     };
-  }
-  
-  cancel(){
-    throw new Error('Method not implemented.');
-  }
+  } 
 
-  deleteInterest() {
-  throw new Error('Method not implemented.');
+  deleteInterest(index: number) {
+  this.getInterests.removeAt(index);
   }
   addInterest() {
-  throw new Error('Method not implemented.');
+  this.getInterests.push(new FormControl(''));
+  }
+
+  submit(){
+    console.log(this.profileForm.value);
   }
   
 }

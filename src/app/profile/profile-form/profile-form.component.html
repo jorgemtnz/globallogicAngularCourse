@@ -1,4 +1,4 @@
-<form [formGroup]="profileForm" (ngSubmit)="updateProfile()" autocomplete="off" >
+<form [formGroup]="profileForm" (ngSubmit)="submit()" autocomplete="off" >
 <div >
     <div class="container">
       <div class="row">
@@ -19,15 +19,21 @@
       </div>
       <div class="col-sm-2 col-md-2 mb-3">
         <label >Profile picture </label>
-        <app-text-input [formControl]="$any(profileForm.controls['profilepicture'])" [label]="'profilepicture'" ></app-text-input> 
-      </div>      
+       </div>      
     </div>
     <br>
     <div class=" container">
       <div class="row">
         <div class="col-sm-4 col-md-4">
           <label >Interests </label>
-          <input type="text" id="interests" class="form-control" formControlName="interests" placeholder="Interest" style="width:300px">      
+          <div formArrayName="interests">
+            <ng-container *ngFor="let interest of getInterests.controls; index as i">   
+              <input type="text" id="interest - {{i}}" [formControlName]="i">  
+              <button class="btn btn-primary" (click)="deleteInterest(i)" tabindex="0">
+                <span>Delete Interest</span>
+              </button>
+            </ng-container>
+          </div>
         </div>  
         <div class="col-sm-8 col-md-8">     
         </div>
@@ -36,9 +42,6 @@
         <div class="col-sm-4 col-md-4">
           <button class="btn btn-primary" (click)="addInterest()" tabindex="0">
             <span>Add Interest</span>
-          </button>
-          <button class="btn btn-primary" (click)="deleteInterest()" tabindex="0">
-            <span>Delete Interest</span>
           </button>
         </div>  
         <div class="col-sm-8 col-md-8">     
@@ -51,10 +54,7 @@
         <div class="col-sm-2 col-md-2">
           <button class="btn btn-primary" type="submit" tabindex="0">
             <span>Update</span>
-          </button>
-          <button class="btn btn-primary" (click)="cancel()" tabindex="0">
-            <span>Cancel</span>
-          </button>
+          </button>   
         </div>  
         <div class="col-sm-10 col-md-10">     
         </div>
