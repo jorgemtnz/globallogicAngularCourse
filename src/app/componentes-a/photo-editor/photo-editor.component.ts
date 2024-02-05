@@ -47,4 +47,6 @@ export class PhotoEditorComponent {
   public fileOverAnother(e:any):void {
     this.hasAnotherDropZoneOver = e;
   }
+
+  
 }
