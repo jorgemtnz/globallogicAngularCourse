@@ -46,7 +46,7 @@
         </div>  
         <div class="col-sm-8 col-md-8">     
           <label >Photo </label>
-          <input type="file" formControlName="profilepicture"  class="file-upload" onchange="console.log(event.target.files)">
+          <input type="file"  class="file-upload" formControlName="profilepicture"  (change)="setProfilePhoto($event)"   onchange="console.log(event.target.files)">
           <!-- <file-upload></file-upload> -->
         </div>
       </div>

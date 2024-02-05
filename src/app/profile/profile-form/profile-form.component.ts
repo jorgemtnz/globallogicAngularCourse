@@ -34,6 +34,13 @@ export class ProfileFormComponent implements OnInit{
   get getInterests(){ 
     return this.profileForm.get('interests') as FormArray;
   } 
+
+  setProfilePhoto(event:any){
+    let files = event.srcElement.files;
+    //this.profileForm.patchValue({profilepicture:files[0]});
+    //this.profileForm.get('profilepicture')?.setValue(files);
+    console.log(files);
+  }
   
   matchValues(matchTo: string): ValidatorFn {
     return (control: AbstractControl) => {

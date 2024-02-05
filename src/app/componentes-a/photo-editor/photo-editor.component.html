@@ -44,7 +44,7 @@
         <div class="col-md-9" style="margin-bottom: 40px">
  
             <h3>Upload queue</h3>
-            <p>Queue length: {{ uploader?.queue?.length }}</p>
+            <!-- <p>Queue length: {{ uploader?.queue?.length }}</p> -->
  
             <table class="table">
                 <thead>
@@ -91,7 +91,7 @@
             <div>
                 <div>
                     Queue progress:
-                    <div class="progress" style="">
+                    <div class="progress" >
                         <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
                     </div>
                 </div>
