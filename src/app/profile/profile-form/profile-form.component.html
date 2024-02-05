@@ -18,11 +18,10 @@
       <div class="col-sm-3 col-md-3">
         <app-text-input [formControl]="$any(profileForm.controls['bio'])" [label]="'Bio'" ></app-text-input>        
       </div>
-      <div class="col-sm-2 col-md-2 mb-3">
-        <label >Profile picture </label>
+      <div class="col-sm-2 col-md-2">        
        </div>      
     </div>
-    <br>
+    <br>    
     <div class=" container">
       <div class="row">
         <div class="col-sm-4 col-md-4">
@@ -46,10 +45,14 @@
           </button>
         </div>  
         <div class="col-sm-8 col-md-8">     
+          <label >Photo </label>
+          <input type="file" class="file-upload" onchange="console.log(event.target.files)">
+          <!-- <file-upload></file-upload> -->
         </div>
       </div>
       <br>
-    </div>    
+    </div>  
+  
     <div class=" container">
       <div class="row">
         <div class="col-sm-2 col-md-2">

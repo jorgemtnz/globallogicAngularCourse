@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { PokemonSpeciesSearchComponent } from '../pokemon/pokemon-species-search/pokemon-species-search.component';
 
 
+
 @NgModule({
   declarations: [
     NotificationInputComponent,

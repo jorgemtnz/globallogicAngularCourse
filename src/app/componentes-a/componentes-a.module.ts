@@ -7,13 +7,16 @@ import { ProfileFormComponent } from '../profile/profile-form/profile-form.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { TextInputComponent } from '../_forms/text-input/text-input.component';
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
-
+import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
     ProfileFormComponent,
     TextInputComponent,
-    ComponentesAComponent
+    PhotoEditorComponent,
+    ComponentesAComponent,
+    FileUploadComponent
   ],
   imports: [
     CommonModule,  
