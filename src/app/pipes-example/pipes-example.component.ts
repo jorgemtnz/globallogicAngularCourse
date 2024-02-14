@@ -22,6 +22,8 @@ export class PipesExampleComponent implements OnInit{
   }
 
   addTask(){
+    if(this.task == '') 
+      this.task = 'task';
     this.service.addElement({title: this.task, status: 'pending', date: new Date()});   
     this.task = '';
   }

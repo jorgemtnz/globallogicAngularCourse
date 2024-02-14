@@ -26,10 +26,13 @@
             <div class="col-sm-8 col-md-8">
               <label >Tasks async</label>
               <div>
-                <ng-container *ngFor="let task of ( tasks$ | async) ; index as i">   
+                <ng-container *ngFor="let task of tasks$ | async; index as i">   
                 <ul>
-                    <li>
-                        {{ task.title | uppercase }} - {{ task.status | lowercase }} - {{ task.date | date:'short' }}
+                    <li appCompletedTaskDirective status="{{task.status}}">
+                     
+                        
+                        {{ task | taskStatusPipe }} - {{ task.status | uppercase  }} - {{ task.date | date:'short' }}
+                       
                         <button class="btn btn-primary" (click)="completeTask(i)" tabindex="0">
                             <span>Complete task</span>
                         </button>

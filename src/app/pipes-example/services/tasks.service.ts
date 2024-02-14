@@ -14,15 +14,10 @@ export class TasksService {
  
   private tasksSubject = new BehaviorSubject<ITaskModel[]>(this.list); 
 
-  public tasks: Subject<ITaskModel[]> = new Subject<ITaskModel[]>;
+  //public tasks: Subject<ITaskModel[]> = new Subject<ITaskModel[]>;
 
   addElement(elemt:ITaskModel){    
     this.list.push(elemt);
-    this.tasksSubject.next(this.list);
-  }
-
-  deleteLastElement(elemt:string){    
-    this.list.pop();
     this.tasksSubject.next(this.list);
   }
 
@@ -41,13 +36,12 @@ export class TasksService {
   }
 
   unCompleteTask(i: number) {
+    console.log('uncomplete');
+    console.log(i);
     this.list[i].status = 'pending';
+    console.log(this.list[i]);
     this.tasksSubject.next(this.list);
-    }
-
-    initializeList(){
-      this.tasksSubject.next(this.list);
-      return this.tasksSubject.asObservable(); 
+    console.log(this.tasksSubject);
     }
 
 }
