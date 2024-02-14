@@ -16,7 +16,8 @@ const routes: Routes = [{
   redirectTo:'',
   pathMatch:'full'
 },
-  { path: 'sharedComponets', loadChildren: () => import('./shared-components/shared-components.module').then(m => m.SharedComponentsModule) }];
+  { path: 'sharedComponets', loadChildren: () => import('./shared-components/shared-components.module').then(m => m.SharedComponentsModule) },
+  { path: 'pipesExampleMain', loadChildren: () => import('./pipes-example/pipes-example.module').then(m => m.PipesExampleModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
