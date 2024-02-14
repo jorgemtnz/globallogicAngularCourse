@@ -11,6 +11,11 @@ const routes: Routes = [{
     loadChildren: () => import('./componentes-b/componentes-b.module')
     .then(m => m.ComponentesBModule) 
   },
+  { 
+    path: 'pipes', 
+    loadChildren: () => import('./pipes-example/pipes-example.module')
+    .then(m => m.PipesExampleModule) 
+  },
 {
   path:'',
   redirectTo:'',

@@ -1,1 +1,53 @@
-<p>pipes-example works!</p>
+    <div >
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <p>pipes-example works!</p>
+            </div>
+          </div>
+          <div class="row"></div>
+          <div class="col-sm-2 col-md-2">    
+        </div>
+      
+          <div class="col-sm-6 col-md-6">      
+            <label >Task </label>
+            <input type="text" id="task" [(ngModel)]="task"  style="width:300px"> 
+
+            <button class="btn btn-primary" (click)="addTask()" tabindex="0">
+                <span>Add Task</span>
+              </button>
+          </div>
+          <div class="col-sm-3 col-md-3">     
+          </div>    
+        </div>
+        <br>    
+        <div class=" container">
+          <div class="row">
+            <div class="col-sm-8 col-md-8">
+              <label >Tasks async</label>
+              <div>
+                <ng-container *ngFor="let task of ( tasks$ | async) ; index as i">   
+                <ul>
+                    <li>
+                        {{ task.title | uppercase }} - {{ task.status | lowercase }} - {{ task.date | date:'short' }}
+                        <button class="btn btn-primary" (click)="completeTask(i)" tabindex="0">
+                            <span>Complete task</span>
+                        </button>
+                        <button class="btn btn-warning" (click)="unCompleteTask(i)" tabindex="0">
+                            <span>UnComplete task</span>
+                        </button>
+                        <button class="btn btn-close" (click)="deleteTask(i)" tabindex="0">                            
+                        </button>
+                    </li>   
+                </ul>
+            </ng-container>
+            </div>
+            </div>  
+            <div class="col-sm-4 col-md-4">     
+            </div>
+          </div>  
+          <br>
+        </div>  
+<br>
+
+

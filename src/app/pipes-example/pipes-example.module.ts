@@ -5,18 +5,17 @@ import { PipesExampleRoutingModule } from './pipes-example-routing.module';
 import { PipesExampleComponent } from './pipes-example.component';
 import { TaskStatusPipePipe } from './pipes/task-status-pipe.pipe';
 import { CompletedTaskDirectiveDirective } from './directivas/completed-task-directive.directive';
-import { TaskFormComponent } from './task-form/task-form.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     PipesExampleComponent,
     TaskStatusPipePipe,
-    CompletedTaskDirectiveDirective,
-    TaskFormComponent
+    CompletedTaskDirectiveDirective
   ],
   imports: [
     CommonModule,
+    FormsModule,
     PipesExampleRoutingModule
   ]
 })
